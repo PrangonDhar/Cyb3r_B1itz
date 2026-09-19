@@ -1,0 +1,16 @@
+{
+    "window": {
+        "width": 1280,
+        "height": 720,
+        "fullscreen": false,
+        "fps": 60
+    },
+    "game": {
+        "questions_per_game": 10,
+        "question_time_seconds": 4,
+        "points_per_correct": 10
+    },
+    "leaderboard": {
+        "display_limit": 10
+    }
+}

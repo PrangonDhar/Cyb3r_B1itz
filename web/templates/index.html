@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cyber Rapid Fire</title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/theme.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/main.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/animations.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================================
+         OUTER FRAME
+         ===================================================== -->
+
+    <div class="frame">
+
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HUD
+         ===================================================== -->
+
+    <div class="hud hud-left">
+
+        <span class="status-dot"></span>
+
+        <span class="status">
+            SYSTEM ONLINE
+        </span>
+
+        &nbsp;&nbsp; // &nbsp;&nbsp;
+
+        CYBER AWARENESS PROTOCOL
+
+    </div>
+
+
+    <div class="hud hud-right">
+
+        SECURE TERMINAL
+
+        <br>
+
+        <span class="status">
+            NODE // 01
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         START SCREEN
+         ===================================================== -->
+
+    <main
+        class="start-content"
+        id="startScreen"
+    >
+
+        <div class="system-label">
+
+            [ SECURITY AWARENESS // RAPID RESPONSE ]
+
+        </div>
+
+
+        <!-- LOGO CAN BE ADDED HERE -->
+
+        <!--
+        <img
+            src="{{ url_for('static', filename='assets/logo/company.png') }}"
+            class="logo"
+        >
+        -->
+
+
+        <h1 class="title">
+
+            CYBER RAPID FIRE
+
+        </h1>
+
+
+        <div class="title-accent"></div>
+
+
+        <p class="subtitle">
+
+            TEST YOUR CYBER AWARENESS
+
+        </p>
+
+
+        <button
+            class="start-button"
+            id="startButton"
+        >
+
+            [ PRESS ENTER TO START ]
+
+        </button>
+
+
+        <div class="game-info">
+
+            <div>
+
+                <span>10</span>
+
+                QUESTIONS
+
+            </div>
+
+
+            <div>
+
+                <span>4.0s</span>
+
+                RESPONSE
+
+            </div>
+
+
+            <div>
+
+                <span>100</span>
+
+                MAX SCORE
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- PLAYER IDENTIFICATION SCREEN -->
+    <!-- ===================================================== -->
+
+    <main
+        class="player-screen"
+        id="playerScreen"
+    >
+
+        <div class="system-label">
+            [ PLAYER IDENTIFICATION // SECURE SESSION ]
+        </div>
+
+
+        <h2 class="player-title">
+            IDENTIFY PLAYER
+        </h2>
+
+
+        <div class="title-accent"></div>
+
+
+        <div class="player-type">
+
+            <button
+                class="player-type-button active"
+                id="employeeButton"
+            >
+                EMPLOYEE
+            </button>
+
+            <button
+                class="player-type-button"
+                id="externalButton"
+            >
+                EXTERNAL
+            </button>
+
+        </div>
+
+
+        <div class="player-form">
+
+            <label id="nameLabel">
+                EMPLOYEE NAME
+            </label>
+
+            <input
+                type="text"
+                id="playerName"
+                maxlength="30"
+                autocomplete="off"
+                placeholder="ENTER NAME"
+            >
+
+
+            <label id="idLabel">
+                STAFF ID / COMPANY
+            </label>
+
+            <input
+            type="text"
+            id="playerId"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="STAFF ID / COMPANY"
+        >
+        </div>
+
+
+        <div
+            class="player-preview"
+            id="playerPreview"
+        >
+            IDENTITY // --
+        </div>
+
+
+        <button
+            class="continue-button"
+            id="continueButton"
+        >
+            [ CONTINUE ]
+        </button>
+
+
+        <div class="player-hint">
+            ENTER TO CONTINUE
+        </div>
+
+    </main>
+
+    <!-- =====================================================
+         GAME SCREEN
+         ===================================================== -->
+
+    <main
+        class="game-screen"
+        id="gameScreen"
+    >
+
+
+        <!-- GAME HEADER -->
+
+        <div class="game-header">
+
+
+            <div class="game-category">
+
+                <span>
+                    CATEGORY
+                </span>
+
+                <strong id="category">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="question-counter">
+
+                QUESTION
+
+                <strong id="questionNumber">
+                    01
+                </strong>
+
+                /
+
+                <span id="totalQuestions">
+                    10
+                </span>
+
+            </div>
+
+
+            <div class="score-display">
+
+                SCORE
+
+                <strong id="score">
+                    0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- TIMER -->
+
+        <div class="timer-area">
+
+
+            <div class="timer-label">
+
+                RESPONSE TIME
+
+            </div>
+
+
+            <div
+                class="timer"
+                id="timer"
+            >
+
+                4.0
+
+            </div>
+
+
+            <div class="timer-bar">
+
+                <div
+                    class="timer-fill"
+                    id="timerFill"
+                ></div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- INSTRUCTION -->
+
+        <div class="game-instruction">
+
+            WHICH ACTION IS CYBER-SAFE?
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="options">
+
+
+            <!-- TOP OPTION -->
+
+            <div
+                class="option-card option-top"
+                id="topOption"
+            >
+
+                <div class="option-direction">
+
+                    ▲
+
+                    <span>
+                        UP
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="option-text"
+                    id="topText"
+                >
+
+                    --
+
+                </div>
+
+            </div>
+
+
+            <!-- VS -->
+
+            <div class="versus">
+
+                VS
+
+            </div>
+
+
+            <!-- BOTTOM OPTION -->
+
+            <div
+                class="option-card option-bottom"
+                id="bottomOption"
+            >
+
+                <div class="option-direction">
+
+                    ▼
+
+                    <span>
+                        DOWN
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="option-text"
+                    id="bottomText"
+                >
+
+                    --
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="game-footer">
+
+            <span>
+                ▲ / ▼  SELECT
+            </span>
+
+            <span>
+                CORRECT = +10
+            </span>
+
+            <span>
+                TIMEOUT = 0
+            </span>
+
+        </div>
+
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- RESULTS SCREEN -->
+    <!-- ===================================================== -->
+
+    <main
+        class="results-screen"
+        id="resultsScreen"
+    >
+
+        <div class="system-label">
+            [ SESSION COMPLETE // SECURITY ASSESSMENT ]
+        </div>
+
+
+        <h2 class="results-title">
+            RUN COMPLETE
+        </h2>
+
+
+        <div class="results-accent"></div>
+
+
+        <div class="results-score-label">
+            FINAL SCORE
+        </div>
+
+
+        <div
+            class="results-score"
+            id="finalScore"
+        >
+            0
+        </div>
+
+
+        <div class="results-stats">
+
+            <div class="result-stat">
+
+                <span>
+                    CORRECT
+                </span>
+
+                <strong id="correctAnswers">
+                    0 / 10
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span>
+                    TIME
+                </span>
+
+                <strong id="finalTime">
+                    0.000s
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="results-message">
+            CYBER AWARENESS PROTOCOL COMPLETE
+        </div>
+
+
+        <button
+            class="replay-button"
+            id="seeAnswersButton"
+        >
+            [ SEE ANSWERS ]
+        </button>
+    </main>
+
+
+    <!-- ===================================================== -->
+    <!-- ANSWER REVIEW SCREEN -->
+    <!-- ===================================================== -->
+
+    <main
+        class="review-screen"
+        id="reviewScreen"
+    >
+
+        <div class="system-label">
+            [ POST-RUN ANALYSIS // ANSWER REVIEW ]
+        </div>
+
+        <h2 class="review-title">
+            ANSWER REVIEW
+        </h2>
+
+        <div class="results-accent"></div>
+
+        <div
+            class="review-summary"
+            id="reviewSummary"
+        >
+            REVIEWING 10 RESPONSES
+        </div>
+
+        <button
+            type="button"
+            class="review-scroll-down"
+            id="reviewScrollDown"
+            aria-label="Scroll down"
+        >
+            ↓
+        </button>
+
+        <div
+            class="review-list"
+            id="reviewList"
+        >
+        </div>
+
+
+
+        <button
+            class="replay-button review-play-again-button"
+            id="reviewPlayAgainButton"
+        >
+            [ PRESS ENTER TO PLAY AGAIN ]
+        </button>
+
+    </main>
+
+    <!-- =====================================================
+         SCANLINE
+         ===================================================== -->
+
+    <div class="scanline"></div>
+
+
+</div>
+
+
+<!-- =========================================================
+     SOCKET.IO
+     ========================================================= -->
+
+<script
+    src="https://cdn.socket.io/4.8.1/socket.io.min.js">
+</script>
+
+
+<!-- =========================================================
+     GAME JAVASCRIPT
+     ========================================================= -->
+
+<script
+    src="{{ url_for('static', filename='js/game.js') }}">
+</script>
+
+
+</body>
+
+</html>

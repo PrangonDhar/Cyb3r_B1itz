@@ -1,0 +1,142 @@
+[
+    {
+        "id": "PASS_001",
+        "category": "Password Security",
+        "option_a": "Use the same password everywhere",
+        "option_b": "Use different strong passwords",
+        "correct": "B"
+    },
+    {
+        "id": "PASS_002",
+        "category": "Password Security",
+        "option_a": "Share your password with a colleague",
+        "option_b": "Keep your password private",
+        "correct": "B"
+    },
+    {
+        "id": "PASS_003",
+        "category": "Password Security",
+        "option_a": "Write your password on a public notice",
+        "option_b": "Store passwords securely",
+        "correct": "B"
+    },
+    {
+        "id": "PHISH_001",
+        "category": "Phishing",
+        "option_a": "Click every urgent link immediately",
+        "option_b": "Verify suspicious links before clicking",
+        "correct": "B"
+    },
+    {
+        "id": "PHISH_002",
+        "category": "Phishing",
+        "option_a": "Check the sender before opening an attachment",
+        "option_b": "Open unknown attachments immediately",
+        "correct": "A"
+    },
+    {
+        "id": "PHISH_003",
+        "category": "Phishing",
+        "option_a": "Share confidential information after an email request",
+        "option_b": "Verify unexpected requests first",
+        "correct": "B"
+    },
+    {
+        "id": "MFA_001",
+        "category": "MFA / OTP",
+        "option_a": "Share your OTP with someone who asks",
+        "option_b": "Never share your OTP",
+        "correct": "B"
+    },
+    {
+        "id": "MFA_002",
+        "category": "MFA / OTP",
+        "option_a": "Approve an unexpected login request",
+        "option_b": "Deny unexpected authentication requests",
+        "correct": "B"
+    },
+    {
+        "id": "MFA_003",
+        "category": "MFA / OTP",
+        "option_a": "Use MFA whenever available",
+        "option_b": "Disable MFA whenever possible",
+        "correct": "A"
+    },
+    {
+        "id": "WIFI_001",
+        "category": "Wi-Fi Security",
+        "option_a": "Use unknown public Wi-Fi for sensitive work",
+        "option_b": "Avoid sensitive activity on untrusted networks",
+        "correct": "B"
+    },
+    {
+        "id": "WIFI_002",
+        "category": "Wi-Fi Security",
+        "option_a": "Connect automatically to every available Wi-Fi",
+        "option_b": "Connect only to trusted networks",
+        "correct": "B"
+    },
+    {
+        "id": "USB_001",
+        "category": "USB Security",
+        "option_a": "Plug in an unknown USB drive",
+        "option_b": "Avoid unknown USB devices",
+        "correct": "B"
+    },
+    {
+        "id": "USB_002",
+        "category": "USB Security",
+        "option_a": "Scan external devices before using them",
+        "option_b": "Trust every USB device automatically",
+        "correct": "A"
+    },
+    {
+        "id": "UPDATE_001",
+        "category": "Updates",
+        "option_a": "Ignore security updates indefinitely",
+        "option_b": "Install security updates promptly",
+        "correct": "B"
+    },
+    {
+        "id": "UPDATE_002",
+        "category": "Updates",
+        "option_a": "Keep software updated",
+        "option_b": "Never update software",
+        "correct": "A"
+    },
+    {
+        "id": "QR_001",
+        "category": "QR Codes",
+        "option_a": "Scan every unknown QR code",
+        "option_b": "Verify a QR code before scanning",
+        "correct": "B"
+    },
+    {
+        "id": "SOCIAL_001",
+        "category": "Social Engineering",
+        "option_a": "Verify unexpected requests for sensitive information",
+        "option_b": "Trust anyone claiming to be from IT",
+        "correct": "A"
+    },
+    {
+        "id": "SOCIAL_002",
+        "category": "Social Engineering",
+        "option_a": "Share confidential information because someone sounds convincing",
+        "option_b": "Verify the person's identity first",
+        "correct": "B"
+    },
+    {
+        "id": "PHYSICAL_001",
+        "category": "Physical Security",
+        "option_a": "Lock your computer when stepping away",
+        "option_b": "Leave your computer unlocked",
+        "correct": "A"
+    },
+    {
+        "id": "DATA_001",
+        "category": "Data Protection",
+        "option_a": "Send confidential company data to your personal email",
+        "option_b": "Use approved company systems for sensitive data",
+        "correct": "B"
+    }
+]
