@@ -1,142 +1,1289 @@
 [
-    {
-        "id": "PASS_001",
-        "category": "Password Security",
-        "option_a": "Use the same password everywhere",
-        "option_b": "Use different strong passwords",
-        "correct": "B"
-    },
-    {
-        "id": "PASS_002",
-        "category": "Password Security",
-        "option_a": "Share your password with a colleague",
-        "option_b": "Keep your password private",
-        "correct": "B"
-    },
-    {
-        "id": "PASS_003",
-        "category": "Password Security",
-        "option_a": "Write your password on a public notice",
-        "option_b": "Store passwords securely",
-        "correct": "B"
-    },
-    {
-        "id": "PHISH_001",
-        "category": "Phishing",
-        "option_a": "Click every urgent link immediately",
-        "option_b": "Verify suspicious links before clicking",
-        "correct": "B"
-    },
-    {
-        "id": "PHISH_002",
-        "category": "Phishing",
-        "option_a": "Check the sender before opening an attachment",
-        "option_b": "Open unknown attachments immediately",
-        "correct": "A"
-    },
-    {
-        "id": "PHISH_003",
-        "category": "Phishing",
-        "option_a": "Share confidential information after an email request",
-        "option_b": "Verify unexpected requests first",
-        "correct": "B"
-    },
-    {
-        "id": "MFA_001",
-        "category": "MFA / OTP",
-        "option_a": "Share your OTP with someone who asks",
-        "option_b": "Never share your OTP",
-        "correct": "B"
-    },
-    {
-        "id": "MFA_002",
-        "category": "MFA / OTP",
-        "option_a": "Approve an unexpected login request",
-        "option_b": "Deny unexpected authentication requests",
-        "correct": "B"
-    },
-    {
-        "id": "MFA_003",
-        "category": "MFA / OTP",
-        "option_a": "Use MFA whenever available",
-        "option_b": "Disable MFA whenever possible",
-        "correct": "A"
-    },
-    {
-        "id": "WIFI_001",
-        "category": "Wi-Fi Security",
-        "option_a": "Use unknown public Wi-Fi for sensitive work",
-        "option_b": "Avoid sensitive activity on untrusted networks",
-        "correct": "B"
-    },
-    {
-        "id": "WIFI_002",
-        "category": "Wi-Fi Security",
-        "option_a": "Connect automatically to every available Wi-Fi",
-        "option_b": "Connect only to trusted networks",
-        "correct": "B"
-    },
-    {
-        "id": "USB_001",
-        "category": "USB Security",
-        "option_a": "Plug in an unknown USB drive",
-        "option_b": "Avoid unknown USB devices",
-        "correct": "B"
-    },
-    {
-        "id": "USB_002",
-        "category": "USB Security",
-        "option_a": "Scan external devices before using them",
-        "option_b": "Trust every USB device automatically",
-        "correct": "A"
-    },
-    {
-        "id": "UPDATE_001",
-        "category": "Updates",
-        "option_a": "Ignore security updates indefinitely",
-        "option_b": "Install security updates promptly",
-        "correct": "B"
-    },
-    {
-        "id": "UPDATE_002",
-        "category": "Updates",
-        "option_a": "Keep software updated",
-        "option_b": "Never update software",
-        "correct": "A"
-    },
-    {
-        "id": "QR_001",
-        "category": "QR Codes",
-        "option_a": "Scan every unknown QR code",
-        "option_b": "Verify a QR code before scanning",
-        "correct": "B"
-    },
-    {
-        "id": "SOCIAL_001",
-        "category": "Social Engineering",
-        "option_a": "Verify unexpected requests for sensitive information",
-        "option_b": "Trust anyone claiming to be from IT",
-        "correct": "A"
-    },
-    {
-        "id": "SOCIAL_002",
-        "category": "Social Engineering",
-        "option_a": "Share confidential information because someone sounds convincing",
-        "option_b": "Verify the person's identity first",
-        "correct": "B"
-    },
-    {
-        "id": "PHYSICAL_001",
-        "category": "Physical Security",
-        "option_a": "Lock your computer when stepping away",
-        "option_b": "Leave your computer unlocked",
-        "correct": "A"
-    },
-    {
-        "id": "DATA_001",
-        "category": "Data Protection",
-        "option_a": "Send confidential company data to your personal email",
-        "option_b": "Use approved company systems for sensitive data",
-        "correct": "B"
-    }
+  {
+    "id": "PASS_NEW_001",
+    "category": "Password Security",
+    "option_a": "Use a unique password for each important account",
+    "option_b": "Reuse one password for multiple accounts",
+    "correct": "A"
+  },
+  {
+    "id": "PASS_NEW_002",
+    "category": "Password Security",
+    "option_a": "Use your employee ID as a password",
+    "option_b": "Use a password that is difficult to guess",
+    "correct": "B"
+  },
+  {
+    "id": "PASS_NEW_003",
+    "category": "Password Security",
+    "option_a": "Keep credentials where anyone can see them",
+    "option_b": "Store credentials using an approved secure method",
+    "correct": "B"
+  },
+  {
+    "id": "PASS_NEW_004",
+    "category": "Password Security",
+    "option_a": "Use a password manager for unique passwords",
+    "option_b": "Memorize one password and reuse it everywhere",
+    "correct": "A"
+  },
+  {
+    "id": "PASS_NEW_005",
+    "category": "Password Security",
+    "option_a": "Use predictable keyboard patterns",
+    "option_b": "Choose passwords that are difficult to predict",
+    "correct": "B"
+  },
+  {
+    "id": "PASS_NEW_006",
+    "category": "Password Security",
+    "option_a": "Use common words as your only password",
+    "option_b": "Use longer, unique authentication secrets",
+    "correct": "B"
+  },
+  {
+    "id": "PASS_NEW_007",
+    "category": "Password Security",
+    "option_a": "Protect your password manager account strongly",
+    "option_b": "Leave your password manager without protection",
+    "correct": "A"
+  },
+  {
+    "id": "PASS_NEW_008",
+    "category": "Password Security",
+    "option_a": "Use security questions with obvious answers",
+    "option_b": "Choose security information that is difficult to guess",
+    "correct": "B"
+  },
+
+  {
+    "id": "PHISH_NEW_001",
+    "category": "Phishing",
+    "option_a": "Inspect the sender address carefully",
+    "option_b": "Trust the display name alone",
+    "correct": "A"
+  },
+  {
+    "id": "PHISH_NEW_002",
+    "category": "Phishing",
+    "option_a": "Enter credentials because a message looks official",
+    "option_b": "Verify the request independently",
+    "correct": "B"
+  },
+  {
+    "id": "PHISH_NEW_003",
+    "category": "Phishing",
+    "option_a": "Treat unexpected password-reset emails cautiously",
+    "option_b": "Use every password-reset link immediately",
+    "correct": "A"
+  },
+  {
+    "id": "PHISH_NEW_004",
+    "category": "Phishing",
+    "option_a": "Trust an email because it uses company branding",
+    "option_b": "Verify unusual requests using a trusted channel",
+    "correct": "B"
+  },
+  {
+    "id": "PHISH_NEW_005",
+    "category": "Phishing",
+    "option_a": "Ignore suspicious sender domains",
+    "option_b": "Check the sender domain for inconsistencies",
+    "correct": "B"
+  },
+  {
+    "id": "PHISH_NEW_006",
+    "category": "Phishing",
+    "option_a": "Be suspicious of unexpected account warnings",
+    "option_b": "Click warning links immediately",
+    "correct": "A"
+  },
+  {
+    "id": "PHISH_NEW_007",
+    "category": "Phishing",
+    "option_a": "Confirm unusual requests before taking action",
+    "option_b": "Act immediately because the message says urgent",
+    "correct": "A"
+  },
+  {
+    "id": "PHISH_NEW_008",
+    "category": "Phishing",
+    "option_a": "Reply with confidential information",
+    "option_b": "Use an independent contact method to verify",
+    "correct": "B"
+  },
+  {
+    "id": "PHISH_NEW_009",
+    "category": "Phishing",
+    "option_a": "Treat unexpected document-sharing notifications cautiously",
+    "option_b": "Open every shared document immediately",
+    "correct": "A"
+  },
+  {
+    "id": "PHISH_NEW_010",
+    "category": "Phishing",
+    "option_a": "Trust a message because it contains your name",
+    "option_b": "Verify the request regardless of personalization",
+    "correct": "B"
+  },
+
+  {
+    "id": "MFA_NEW_001",
+    "category": "MFA / OTP",
+    "option_a": "Approve an MFA request you did not initiate",
+    "option_b": "Reject unexpected authentication requests",
+    "correct": "B"
+  },
+  {
+    "id": "MFA_NEW_002",
+    "category": "MFA / OTP",
+    "option_a": "Investigate repeated unexpected MFA prompts",
+    "option_b": "Approve prompts until they stop",
+    "correct": "A"
+  },
+  {
+    "id": "MFA_NEW_003",
+    "category": "MFA / OTP",
+    "option_a": "Treat authentication codes as confidential",
+    "option_b": "Give codes to anyone claiming to be support",
+    "correct": "A"
+  },
+  {
+    "id": "MFA_NEW_004",
+    "category": "MFA / OTP",
+    "option_a": "Approve every push notification automatically",
+    "option_b": "Check the login details before approving",
+    "correct": "B"
+  },
+  {
+    "id": "MFA_NEW_005",
+    "category": "MFA / OTP",
+    "option_a": "Use phishing-resistant authentication where available",
+    "option_b": "Disable stronger authentication for convenience",
+    "correct": "A"
+  },
+  {
+    "id": "MFA_NEW_006",
+    "category": "MFA / OTP",
+    "option_a": "Share a verification code with a caller",
+    "option_b": "Keep verification codes private",
+    "correct": "B"
+  },
+
+  {
+    "id": "WIFI_NEW_001",
+    "category": "Wi-Fi Security",
+    "option_a": "Confirm the network with the legitimate provider",
+    "option_b": "Choose a network only because its signal is strong",
+    "correct": "A"
+  },
+  {
+    "id": "WIFI_NEW_002",
+    "category": "Wi-Fi Security",
+    "option_a": "Use unknown networks for confidential work",
+    "option_b": "Use trusted connectivity for sensitive activity",
+    "correct": "B"
+  },
+  {
+    "id": "WIFI_NEW_003",
+    "category": "Wi-Fi Security",
+    "option_a": "Disable automatic connection to unknown networks",
+    "option_b": "Allow automatic connection everywhere",
+    "correct": "A"
+  },
+  {
+    "id": "WIFI_NEW_004",
+    "category": "Wi-Fi Security",
+    "option_a": "Assume every public network is safe",
+    "option_b": "Treat public networks as untrusted by default",
+    "correct": "B"
+  },
+  {
+    "id": "WIFI_NEW_005",
+    "category": "Wi-Fi Security",
+    "option_a": "Verify the network name before connecting",
+    "option_b": "Connect to the first network you see",
+    "correct": "A"
+  },
+  {
+    "id": "WIFI_NEW_006",
+    "category": "Wi-Fi Security",
+    "option_a": "Share sensitive files over unknown Wi-Fi",
+    "option_b": "Avoid sensitive transfers on untrusted networks",
+    "correct": "B"
+  },
+
+  {
+    "id": "USB_NEW_001",
+    "category": "USB Security",
+    "option_a": "Use a USB device simply because you found it",
+    "option_b": "Report an unknown USB device through proper channels",
+    "correct": "B"
+  },
+  {
+    "id": "USB_NEW_002",
+    "category": "USB Security",
+    "option_a": "Use company-approved removable media",
+    "option_b": "Use any removable media without checking",
+    "correct": "A"
+  },
+  {
+    "id": "USB_NEW_003",
+    "category": "USB Security",
+    "option_a": "Disable endpoint protection before connecting a device",
+    "option_b": "Keep security controls enabled",
+    "correct": "B"
+  },
+  {
+    "id": "USB_NEW_004",
+    "category": "USB Security",
+    "option_a": "Open files immediately from an unknown drive",
+    "option_b": "Verify the device before accessing files",
+    "correct": "B"
+  },
+  {
+    "id": "USB_NEW_005",
+    "category": "USB Security",
+    "option_a": "Encrypt sensitive information on removable media",
+    "option_b": "Leave sensitive files unprotected",
+    "correct": "A"
+  },
+  {
+    "id": "USB_NEW_006",
+    "category": "USB Security",
+    "option_a": "Plug an unknown device into a work computer",
+    "option_b": "Follow organizational procedures for unknown devices",
+    "correct": "B"
+  },
+
+  {
+    "id": "UPDATE_NEW_001",
+    "category": "Updates",
+    "option_a": "Install security patches within the required timeframe",
+    "option_b": "Postpone every security patch indefinitely",
+    "correct": "A"
+  },
+  {
+    "id": "UPDATE_NEW_002",
+    "category": "Updates",
+    "option_a": "Download patches from random websites",
+    "option_b": "Obtain updates from trusted sources",
+    "correct": "B"
+  },
+  {
+    "id": "UPDATE_NEW_003",
+    "category": "Updates",
+    "option_a": "Keep unsupported software indefinitely",
+    "option_b": "Replace or update unsupported software",
+    "correct": "B"
+  },
+  {
+    "id": "UPDATE_NEW_004",
+    "category": "Updates",
+    "option_a": "Restart when required to complete important security updates",
+    "option_b": "Cancel every security update restart",
+    "correct": "A"
+  },
+  {
+    "id": "UPDATE_NEW_005",
+    "category": "Updates",
+    "option_a": "Verify an update notification before installing it",
+    "option_b": "Install updates from suspicious pop-ups",
+    "correct": "A"
+  },
+  {
+    "id": "UPDATE_NEW_006",
+    "category": "Updates",
+    "option_a": "Ignore vendor security advisories",
+    "option_b": "Review relevant trusted security advisories",
+    "correct": "B"
+  },
+
+  {
+    "id": "QR_NEW_001",
+    "category": "QR Codes",
+    "option_a": "Check the destination before entering information",
+    "option_b": "Enter credentials as soon as the QR opens",
+    "correct": "A"
+  },
+  {
+    "id": "QR_NEW_002",
+    "category": "QR Codes",
+    "option_a": "Trust a QR code because it appears official",
+    "option_b": "Verify where the QR code leads",
+    "correct": "B"
+  },
+  {
+    "id": "QR_NEW_003",
+    "category": "QR Codes",
+    "option_a": "Use a QR code from an unverified poster",
+    "option_b": "Use QR codes from trusted sources",
+    "correct": "B"
+  },
+  {
+    "id": "QR_NEW_004",
+    "category": "QR Codes",
+    "option_a": "Check for suspicious changes to printed QR codes",
+    "option_b": "Ignore stickers placed over QR codes",
+    "correct": "A"
+  },
+  {
+    "id": "QR_NEW_005",
+    "category": "QR Codes",
+    "option_a": "Verify payment details before confirming",
+    "option_b": "Pay immediately after scanning",
+    "correct": "A"
+  },
+  {
+    "id": "QR_NEW_006",
+    "category": "QR Codes",
+    "option_a": "Assume QR codes cannot lead to malicious websites",
+    "option_b": "Treat unexpected QR codes cautiously",
+    "correct": "B"
+  },
+
+  {
+    "id": "SOCIAL_NEW_001",
+    "category": "Social Engineering",
+    "option_a": "Verify identity before sharing internal information",
+    "option_b": "Trust someone because they know your department",
+    "correct": "A"
+  },
+  {
+    "id": "SOCIAL_NEW_002",
+    "category": "Social Engineering",
+    "option_a": "Follow unusual instructions because someone sounds senior",
+    "option_b": "Verify unusual instructions through trusted channels",
+    "correct": "B"
+  },
+  {
+    "id": "SOCIAL_NEW_003",
+    "category": "Social Engineering",
+    "option_a": "Be cautious when someone asks you to bypass controls",
+    "option_b": "Bypass controls when someone claims an emergency",
+    "correct": "A"
+  },
+  {
+    "id": "SOCIAL_NEW_004",
+    "category": "Social Engineering",
+    "option_a": "Share information with a convincing stranger",
+    "option_b": "Verify the person's identity first",
+    "correct": "B"
+  },
+  {
+    "id": "SOCIAL_NEW_005",
+    "category": "Social Engineering",
+    "option_a": "Challenge unusual requests according to policy",
+    "option_b": "Follow every request without question",
+    "correct": "A"
+  },
+  {
+    "id": "SOCIAL_NEW_006",
+    "category": "Social Engineering",
+    "option_a": "Give a caller information because they know your manager's name",
+    "option_b": "Verify the caller independently",
+    "correct": "B"
+  },
+  {
+    "id": "SOCIAL_NEW_007",
+    "category": "Social Engineering",
+    "option_a": "Confirm unusual requests through another channel",
+    "option_b": "Use the same suspicious channel to verify the request",
+    "correct": "A"
+  },
+  {
+    "id": "SOCIAL_NEW_008",
+    "category": "Social Engineering",
+    "option_a": "Give sensitive information to avoid confrontation",
+    "option_b": "Follow verification procedures even under pressure",
+    "correct": "B"
+  },
+
+  {
+    "id": "PHYSICAL_NEW_001",
+    "category": "Physical Security",
+    "option_a": "Keep your access badge with you",
+    "option_b": "Leave your badge unattended",
+    "correct": "A"
+  },
+  {
+    "id": "PHYSICAL_NEW_002",
+    "category": "Physical Security",
+    "option_a": "Allow someone to enter behind you without verification",
+    "option_b": "Follow controlled-entry procedures",
+    "correct": "B"
+  },
+  {
+    "id": "PHYSICAL_NEW_003",
+    "category": "Physical Security",
+    "option_a": "Secure sensitive papers before leaving your workspace",
+    "option_b": "Leave sensitive papers visible",
+    "correct": "A"
+  },
+  {
+    "id": "PHYSICAL_NEW_004",
+    "category": "Physical Security",
+    "option_a": "Photograph confidential documents for convenience",
+    "option_b": "Handle confidential documents according to policy",
+    "correct": "B"
+  },
+  {
+    "id": "PHYSICAL_NEW_005",
+    "category": "Physical Security",
+    "option_a": "Report an unfamiliar person in a restricted area",
+    "option_b": "Ignore unfamiliar people in restricted areas",
+    "correct": "A"
+  },
+  {
+    "id": "PHYSICAL_NEW_006",
+    "category": "Physical Security",
+    "option_a": "Leave your access badge with a coworker",
+    "option_b": "Keep your access badge under your control",
+    "correct": "B"
+  },
+
+  {
+    "id": "DATA_NEW_001",
+    "category": "Data Protection",
+    "option_a": "Double-check recipients before sending confidential files",
+    "option_b": "Send confidential files without checking recipients",
+    "correct": "A"
+  },
+  {
+    "id": "DATA_NEW_002",
+    "category": "Data Protection",
+    "option_a": "Upload company data to any convenient website",
+    "option_b": "Use approved platforms for company data",
+    "correct": "B"
+  },
+  {
+    "id": "DATA_NEW_003",
+    "category": "Data Protection",
+    "option_a": "Limit access to sensitive information",
+    "option_b": "Give sensitive information to everyone",
+    "correct": "A"
+  },
+  {
+    "id": "DATA_NEW_004",
+    "category": "Data Protection",
+    "option_a": "Send sensitive files through personal accounts",
+    "option_b": "Use approved business channels",
+    "correct": "B"
+  },
+  {
+    "id": "DATA_NEW_005",
+    "category": "Data Protection",
+    "option_a": "Check sharing permissions before sending a file",
+    "option_b": "Make sensitive files accessible to anyone with the link",
+    "correct": "A"
+  },
+  {
+    "id": "DATA_NEW_006",
+    "category": "Data Protection",
+    "option_a": "Keep confidential data on personal storage",
+    "option_b": "Store confidential data in approved locations",
+    "correct": "B"
+  },
+  {
+    "id": "DATA_NEW_007",
+    "category": "Data Protection",
+    "option_a": "Remove sensitive information when retention requirements allow",
+    "option_b": "Keep every sensitive file forever",
+    "correct": "A"
+  },
+  {
+    "id": "DATA_NEW_008",
+    "category": "Data Protection",
+    "option_a": "Share customer information for convenience",
+    "option_b": "Share customer information only when authorized",
+    "correct": "B"
+  },
+
+  {
+    "id": "MAL_NEW_001",
+    "category": "Malware",
+    "option_a": "Investigate unexpected security warnings",
+    "option_b": "Ignore security warnings to save time",
+    "correct": "A"
+  },
+  {
+    "id": "MAL_NEW_002",
+    "category": "Malware",
+    "option_a": "Run unknown software with administrator privileges",
+    "option_b": "Verify software before executing it",
+    "correct": "B"
+  },
+  {
+    "id": "MAL_NEW_003",
+    "category": "Malware",
+    "option_a": "Install software because an online ad recommends it",
+    "option_b": "Verify the software source first",
+    "correct": "B"
+  },
+  {
+    "id": "MAL_NEW_004",
+    "category": "Malware",
+    "option_a": "Keep endpoint protection enabled",
+    "option_b": "Disable endpoint protection for convenience",
+    "correct": "A"
+  },
+  {
+    "id": "MAL_NEW_005",
+    "category": "Malware",
+    "option_a": "Report unexplained system behavior",
+    "option_b": "Ignore unusual system behavior",
+    "correct": "A"
+  },
+  {
+    "id": "MAL_NEW_006",
+    "category": "Malware",
+    "option_a": "Install cracked applications from unknown sources",
+    "option_b": "Use legitimate software from trusted sources",
+    "correct": "B"
+  },
+  {
+    "id": "MAL_NEW_007",
+    "category": "Malware",
+    "option_a": "Close suspicious pop-ups without interacting with them",
+    "option_b": "Follow instructions in every unexpected pop-up",
+    "correct": "A"
+  },
+  {
+    "id": "MAL_NEW_008",
+    "category": "Malware",
+    "option_a": "Ignore repeated antivirus detections",
+    "option_b": "Report or investigate repeated detections",
+    "correct": "B"
+  },
+
+  {
+    "id": "RANSOM_NEW_001",
+    "category": "Ransomware",
+    "option_a": "Maintain recoverable backups of important data",
+    "option_b": "Keep only one copy of important data",
+    "correct": "A"
+  },
+  {
+    "id": "RANSOM_NEW_002",
+    "category": "Ransomware",
+    "option_a": "Ignore unusual file renaming",
+    "option_b": "Report unusual mass file changes",
+    "correct": "B"
+  },
+  {
+    "id": "RANSOM_NEW_003",
+    "category": "Ransomware",
+    "option_a": "Continue working normally after ransomware signs appear",
+    "option_b": "Follow incident-response procedures",
+    "correct": "B"
+  },
+  {
+    "id": "RANSOM_NEW_004",
+    "category": "Ransomware",
+    "option_a": "Keep backups protected from unauthorized modification",
+    "option_b": "Give everyone access to backup systems",
+    "correct": "A"
+  },
+  {
+    "id": "RANSOM_NEW_005",
+    "category": "Ransomware",
+    "option_a": "Open suspicious files to see what they contain",
+    "option_b": "Avoid unexpected files and report them",
+    "correct": "B"
+  },
+  {
+    "id": "RANSOM_NEW_006",
+    "category": "Ransomware",
+    "option_a": "Patch systems against known vulnerabilities",
+    "option_b": "Ignore vulnerabilities until an attack occurs",
+    "correct": "A"
+  },
+
+  {
+    "id": "BROWSER_NEW_001",
+    "category": "Browser Security",
+    "option_a": "Review browser extensions periodically",
+    "option_b": "Install extensions and never review them",
+    "correct": "A"
+  },
+  {
+    "id": "BROWSER_NEW_002",
+    "category": "Browser Security",
+    "option_a": "Give every website unrestricted permissions",
+    "option_b": "Allow only necessary website permissions",
+    "correct": "B"
+  },
+  {
+    "id": "BROWSER_NEW_003",
+    "category": "Browser Security",
+    "option_a": "Investigate unexpected browser certificate warnings",
+    "option_b": "Ignore certificate warnings",
+    "correct": "A"
+  },
+  {
+    "id": "BROWSER_NEW_004",
+    "category": "Browser Security",
+    "option_a": "Install extensions from unknown websites",
+    "option_b": "Use trusted sources for browser extensions",
+    "correct": "B"
+  },
+  {
+    "id": "BROWSER_NEW_005",
+    "category": "Browser Security",
+    "option_a": "Review saved information on shared computers",
+    "option_b": "Leave sensitive browser data on shared computers",
+    "correct": "A"
+  },
+  {
+    "id": "BROWSER_NEW_006",
+    "category": "Browser Security",
+    "option_a": "Allow every website to run anything automatically",
+    "option_b": "Review browser security settings when needed",
+    "correct": "B"
+  },
+
+  {
+    "id": "DOWNLOAD_NEW_001",
+    "category": "Safe Downloads",
+    "option_a": "Check the publisher before installing software",
+    "option_b": "Trust software from an unknown publisher",
+    "correct": "A"
+  },
+  {
+    "id": "DOWNLOAD_NEW_002",
+    "category": "Safe Downloads",
+    "option_a": "Open files just because the filename looks familiar",
+    "option_b": "Verify unexpected files before opening them",
+    "correct": "B"
+  },
+  {
+    "id": "DOWNLOAD_NEW_003",
+    "category": "Safe Downloads",
+    "option_a": "Use official vendor websites for software",
+    "option_b": "Use random download mirrors",
+    "correct": "A"
+  },
+  {
+    "id": "DOWNLOAD_NEW_004",
+    "category": "Safe Downloads",
+    "option_a": "Disable security scanning to speed up downloads",
+    "option_b": "Keep appropriate scanning protections enabled",
+    "correct": "B"
+  },
+  {
+    "id": "DOWNLOAD_NEW_005",
+    "category": "Safe Downloads",
+    "option_a": "Verify suspicious file extensions",
+    "option_b": "Open suspicious executable files immediately",
+    "correct": "A"
+  },
+  {
+    "id": "DOWNLOAD_NEW_006",
+    "category": "Safe Downloads",
+    "option_a": "Download software from links sent by strangers",
+    "option_b": "Verify the software source independently",
+    "correct": "B"
+  },
+
+  {
+    "id": "DEVICE_NEW_001",
+    "category": "Device Security",
+    "option_a": "Enable automatic screen locking",
+    "option_b": "Keep the screen unlocked all day",
+    "correct": "A"
+  },
+  {
+    "id": "DEVICE_NEW_002",
+    "category": "Device Security",
+    "option_a": "Use company devices for unauthorized personal activity",
+    "option_b": "Follow organizational device-use policies",
+    "correct": "B"
+  },
+  {
+    "id": "DEVICE_NEW_003",
+    "category": "Device Security",
+    "option_a": "Report a lost device immediately",
+    "option_b": "Wait until someone finds it",
+    "correct": "A"
+  },
+  {
+    "id": "DEVICE_NEW_004",
+    "category": "Device Security",
+    "option_a": "Connect unknown accessories without checking",
+    "option_b": "Use approved accessories where required",
+    "correct": "B"
+  },
+  {
+    "id": "DEVICE_NEW_005",
+    "category": "Device Security",
+    "option_a": "Use encryption when required for sensitive devices",
+    "option_b": "Disable device encryption",
+    "correct": "A"
+  },
+  {
+    "id": "DEVICE_NEW_006",
+    "category": "Device Security",
+    "option_a": "Share your work device with anyone who asks",
+    "option_b": "Keep company devices under authorized control",
+    "correct": "B"
+  },
+
+  {
+    "id": "CLOUD_NEW_001",
+    "category": "Cloud Security",
+    "option_a": "Review who can access a shared cloud file",
+    "option_b": "Share sensitive files with everyone",
+    "correct": "A"
+  },
+  {
+    "id": "CLOUD_NEW_002",
+    "category": "Cloud Security",
+    "option_a": "Store API keys in public code repositories",
+    "option_b": "Keep API keys and secrets protected",
+    "correct": "B"
+  },
+  {
+    "id": "CLOUD_NEW_003",
+    "category": "Cloud Security",
+    "option_a": "Remove unnecessary cloud access permissions",
+    "option_b": "Keep old permissions indefinitely",
+    "correct": "A"
+  },
+  {
+    "id": "CLOUD_NEW_004",
+    "category": "Cloud Security",
+    "option_a": "Ignore unusual cloud login notifications",
+    "option_b": "Investigate unfamiliar cloud activity",
+    "correct": "B"
+  },
+  {
+    "id": "CLOUD_NEW_005",
+    "category": "Cloud Security",
+    "option_a": "Use approved cloud storage for company information",
+    "option_b": "Upload company information to personal cloud storage",
+    "correct": "A"
+  },
+  {
+    "id": "CLOUD_NEW_006",
+    "category": "Cloud Security",
+    "option_a": "Give every cloud user administrator privileges",
+    "option_b": "Assign only required cloud permissions",
+    "correct": "B"
+  },
+
+  {
+    "id": "BACKUP_NEW_001",
+    "category": "Backup Security",
+    "option_a": "Check that backups can actually be restored",
+    "option_b": "Assume every backup will work",
+    "correct": "A"
+  },
+  {
+    "id": "BACKUP_NEW_002",
+    "category": "Backup Security",
+    "option_a": "Store backup credentials securely",
+    "option_b": "Write backup credentials on a public notice",
+    "correct": "A"
+  },
+  {
+    "id": "BACKUP_NEW_003",
+    "category": "Backup Security",
+    "option_a": "Give all employees access to backups",
+    "option_b": "Restrict backup access to authorized users",
+    "correct": "B"
+  },
+  {
+    "id": "BACKUP_NEW_004",
+    "category": "Backup Security",
+    "option_a": "Protect backups against accidental deletion",
+    "option_b": "Allow anyone to delete backups",
+    "correct": "A"
+  },
+  {
+    "id": "BACKUP_NEW_005",
+    "category": "Backup Security",
+    "option_a": "Create backups only after losing data",
+    "option_b": "Back up important information regularly",
+    "correct": "B"
+  },
+  {
+    "id": "BACKUP_NEW_006",
+    "category": "Backup Security",
+    "option_a": "Keep backup copies appropriately separated from primary data",
+    "option_b": "Keep every backup on the same device",
+    "correct": "A"
+  },
+
+  {
+    "id": "INCIDENT_NEW_001",
+    "category": "Incident Reporting",
+    "option_a": "Report suspicious activity even if you are unsure",
+    "option_b": "Stay silent unless damage is confirmed",
+    "correct": "A"
+  },
+  {
+    "id": "INCIDENT_NEW_002",
+    "category": "Incident Reporting",
+    "option_a": "Delete suspicious files before reporting",
+    "option_b": "Follow instructions from the security team",
+    "correct": "B"
+  },
+  {
+    "id": "INCIDENT_NEW_003",
+    "category": "Incident Reporting",
+    "option_a": "Report accidental data disclosure promptly",
+    "option_b": "Hide mistakes to avoid attention",
+    "correct": "A"
+  },
+  {
+    "id": "INCIDENT_NEW_004",
+    "category": "Incident Reporting",
+    "option_a": "Post incident details on social media",
+    "option_b": "Use the organization's incident-reporting channel",
+    "correct": "B"
+  },
+  {
+    "id": "INCIDENT_NEW_005",
+    "category": "Incident Reporting",
+    "option_a": "Report suspicious login notifications",
+    "option_b": "Ignore unfamiliar login activity",
+    "correct": "A"
+  },
+  {
+    "id": "INCIDENT_NEW_006",
+    "category": "Incident Reporting",
+    "option_a": "Wait for someone else to report a suspected incident",
+    "option_b": "Report suspected incidents through the proper channel",
+    "correct": "B"
+  },
+
+  {
+    "id": "EMAIL_NEW_001",
+    "category": "Email Security",
+    "option_a": "Check the recipient list before sending sensitive information",
+    "option_b": "Send sensitive information to everyone in the thread",
+    "correct": "A"
+  },
+  {
+    "id": "EMAIL_NEW_002",
+    "category": "Email Security",
+    "option_a": "Forward confidential work mail to personal accounts",
+    "option_b": "Use approved business email systems",
+    "correct": "B"
+  },
+  {
+    "id": "EMAIL_NEW_003",
+    "category": "Email Security",
+    "option_a": "Verify unusual requests for money or information",
+    "option_b": "Process unusual requests immediately",
+    "correct": "A"
+  },
+  {
+    "id": "EMAIL_NEW_004",
+    "category": "Email Security",
+    "option_a": "Send sensitive documents without checking the recipient",
+    "option_b": "Confirm the recipient before sending",
+    "correct": "B"
+  },
+  {
+    "id": "EMAIL_NEW_005",
+    "category": "Email Security",
+    "option_a": "Use approved protection for sensitive email when required",
+    "option_b": "Send sensitive information through any available channel",
+    "correct": "A"
+  },
+  {
+    "id": "EMAIL_NEW_006",
+    "category": "Email Security",
+    "option_a": "Ignore an email that appears to contain sensitive information sent incorrectly",
+    "option_b": "Report accidental email exposure through the proper channel",
+    "correct": "B"
+  },
+
+  {
+    "id": "MOBILE_NEW_001",
+    "category": "Mobile Security",
+    "option_a": "Review which apps can access your location",
+    "option_b": "Allow every app to access your location",
+    "correct": "A"
+  },
+  {
+    "id": "MOBILE_NEW_002",
+    "category": "Mobile Security",
+    "option_a": "Leave Bluetooth discoverable everywhere",
+    "option_b": "Disable unnecessary Bluetooth connections",
+    "correct": "B"
+  },
+  {
+    "id": "MOBILE_NEW_003",
+    "category": "Mobile Security",
+    "option_a": "Review app permissions before granting them",
+    "option_b": "Grant permissions without checking",
+    "correct": "A"
+  },
+  {
+    "id": "MOBILE_NEW_004",
+    "category": "Mobile Security",
+    "option_a": "Install applications from unknown links",
+    "option_b": "Use trusted application sources",
+    "correct": "B"
+  },
+  {
+    "id": "MOBILE_NEW_005",
+    "category": "Mobile Security",
+    "option_a": "Keep your work phone updated",
+    "option_b": "Ignore mobile security updates",
+    "correct": "A"
+  },
+  {
+    "id": "MOBILE_NEW_006",
+    "category": "Mobile Security",
+    "option_a": "Connect automatically to unknown accessories",
+    "option_b": "Verify unfamiliar devices before connecting",
+    "correct": "B"
+  },
+
+  {
+    "id": "PRIVACY_NEW_001",
+    "category": "Data Privacy",
+    "option_a": "Review what personal information an app requests",
+    "option_b": "Provide every requested detail automatically",
+    "correct": "A"
+  },
+  {
+    "id": "PRIVACY_NEW_002",
+    "category": "Data Privacy",
+    "option_a": "Make your personal details publicly visible",
+    "option_b": "Limit unnecessary exposure of personal information",
+    "correct": "B"
+  },
+  {
+    "id": "PRIVACY_NEW_003",
+    "category": "Data Privacy",
+    "option_a": "Check privacy settings periodically",
+    "option_b": "Ignore privacy settings after creating an account",
+    "correct": "A"
+  },
+  {
+    "id": "PRIVACY_NEW_004",
+    "category": "Data Privacy",
+    "option_a": "Share employee information without authorization",
+    "option_b": "Handle personal information according to policy",
+    "correct": "B"
+  },
+  {
+    "id": "PRIVACY_NEW_005",
+    "category": "Data Privacy",
+    "option_a": "Question why sensitive information is being requested",
+    "option_b": "Provide sensitive information without verification",
+    "correct": "A"
+  },
+  {
+    "id": "PRIVACY_NEW_006",
+    "category": "Data Privacy",
+    "option_a": "Post private company information publicly",
+    "option_b": "Keep private information within approved channels",
+    "correct": "B"
+  },
+
+  {
+    "id": "INSIDER_NEW_001",
+    "category": "Insider Threats",
+    "option_a": "Access only information required for your role",
+    "option_b": "Browse sensitive files out of curiosity",
+    "correct": "A"
+  },
+  {
+    "id": "INSIDER_NEW_002",
+    "category": "Insider Threats",
+    "option_a": "Use a coworker's account for convenience",
+    "option_b": "Use your own authorized account",
+    "correct": "B"
+  },
+  {
+    "id": "INSIDER_NEW_003",
+    "category": "Insider Threats",
+    "option_a": "Report unusual access to sensitive information",
+    "option_b": "Ignore unusual internal access",
+    "correct": "A"
+  },
+  {
+    "id": "INSIDER_NEW_004",
+    "category": "Insider Threats",
+    "option_a": "Copy restricted files for personal use",
+    "option_b": "Follow approved procedures for restricted data",
+    "correct": "B"
+  },
+  {
+    "id": "INSIDER_NEW_005",
+    "category": "Insider Threats",
+    "option_a": "Share your account credentials with a teammate",
+    "option_b": "Keep your account credentials private",
+    "correct": "B"
+  },
+  {
+    "id": "INSIDER_NEW_006",
+    "category": "Insider Threats",
+    "option_a": "Bypass access controls to finish faster",
+    "option_b": "Follow access-control requirements",
+    "correct": "B"
+  },
+
+  {
+    "id": "NETWORK_NEW_001",
+    "category": "Network Security",
+    "option_a": "Use approved remote-access solutions",
+    "option_b": "Install random remote-access software",
+    "correct": "A"
+  },
+  {
+    "id": "NETWORK_NEW_002",
+    "category": "Network Security",
+    "option_a": "Share network credentials with coworkers",
+    "option_b": "Keep network credentials confidential",
+    "correct": "B"
+  },
+  {
+    "id": "NETWORK_NEW_003",
+    "category": "Network Security",
+    "option_a": "Report unusual network activity",
+    "option_b": "Ignore unexpected network behavior",
+    "correct": "A"
+  },
+  {
+    "id": "NETWORK_NEW_004",
+    "category": "Network Security",
+    "option_a": "Connect unauthorized devices to protected networks",
+    "option_b": "Allow only authorized devices where required",
+    "correct": "B"
+  },
+  {
+    "id": "NETWORK_NEW_005",
+    "category": "Network Security",
+    "option_a": "Use approved secure communication methods",
+    "option_b": "Use insecure protocols whenever convenient",
+    "correct": "A"
+  },
+  {
+    "id": "NETWORK_NEW_006",
+    "category": "Network Security",
+    "option_a": "Disable network protections for faster access",
+    "option_b": "Keep required network protections enabled",
+    "correct": "B"
+  },
+
+  {
+    "id": "APP_NEW_001",
+    "category": "Application Security",
+    "option_a": "Review application permissions before granting them",
+    "option_b": "Give every application unrestricted access",
+    "correct": "A"
+  },
+  {
+    "id": "APP_NEW_002",
+    "category": "Application Security",
+    "option_a": "Install any application requested by a coworker",
+    "option_b": "Use applications approved by the organization",
+    "correct": "B"
+  },
+  {
+    "id": "APP_NEW_003",
+    "category": "Application Security",
+    "option_a": "Report unexpected application behavior",
+    "option_b": "Ignore unusual application activity",
+    "correct": "A"
+  },
+  {
+    "id": "APP_NEW_004",
+    "category": "Application Security",
+    "option_a": "Disable application security controls for convenience",
+    "option_b": "Keep required security controls enabled",
+    "correct": "B"
+  },
+  {
+    "id": "APP_NEW_005",
+    "category": "Application Security",
+    "option_a": "Use an unapproved application for sensitive company data",
+    "option_b": "Use an approved application for sensitive data",
+    "correct": "B"
+  },
+  {
+    "id": "APP_NEW_006",
+    "category": "Application Security",
+    "option_a": "Keep business applications updated",
+    "option_b": "Ignore application security updates",
+    "correct": "A"
+  },
+
+  {
+    "id": "PAY_NEW_001",
+    "category": "Payment Security",
+    "option_a": "Verify changes to supplier bank details independently",
+    "option_b": "Trust every emailed bank-detail change",
+    "correct": "A"
+  },
+  {
+    "id": "PAY_NEW_002",
+    "category": "Payment Security",
+    "option_a": "Approve a payment because the request sounds urgent",
+    "option_b": "Follow the required payment verification process",
+    "correct": "B"
+  },
+  {
+    "id": "PAY_NEW_003",
+    "category": "Payment Security",
+    "option_a": "Check the beneficiary details before confirming payment",
+    "option_b": "Approve payment without reviewing details",
+    "correct": "A"
+  },
+  {
+    "id": "PAY_NEW_004",
+    "category": "Payment Security",
+    "option_a": "Share banking credentials with a caller",
+    "option_b": "Keep financial credentials confidential",
+    "correct": "B"
+  },
+  {
+    "id": "PAY_NEW_005",
+    "category": "Payment Security",
+    "option_a": "Verify unusual refund requests",
+    "option_b": "Process every refund request immediately",
+    "correct": "A"
+  },
+  {
+    "id": "PAY_NEW_006",
+    "category": "Payment Security",
+    "option_a": "Ignore unfamiliar payment notifications",
+    "option_b": "Report unfamiliar financial activity",
+    "correct": "B"
+  },
+
+  {
+    "id": "REMOTE_NEW_001",
+    "category": "Remote Work Security",
+    "option_a": "Use approved methods to access company systems remotely",
+    "option_b": "Use any remote-access tool you find online",
+    "correct": "A"
+  },
+  {
+    "id": "REMOTE_NEW_002",
+    "category": "Remote Work Security",
+    "option_a": "Discuss confidential work in crowded public places",
+    "option_b": "Choose a private location for confidential discussions",
+    "correct": "B"
+  },
+  {
+    "id": "REMOTE_NEW_003",
+    "category": "Remote Work Security",
+    "option_a": "Lock your screen when leaving your home workspace",
+    "option_b": "Leave your work session unlocked",
+    "correct": "A"
+  },
+  {
+    "id": "REMOTE_NEW_004",
+    "category": "Remote Work Security",
+    "option_a": "Use public computers for confidential company work",
+    "option_b": "Use an approved company device",
+    "correct": "B"
+  },
+  {
+    "id": "REMOTE_NEW_005",
+    "category": "Remote Work Security",
+    "option_a": "Store work files only in approved locations",
+    "option_b": "Copy work files to personal storage",
+    "correct": "A"
+  },
+  {
+    "id": "REMOTE_NEW_006",
+    "category": "Remote Work Security",
+    "option_a": "Share your work device with household visitors",
+    "option_b": "Keep company devices under your control",
+    "correct": "B"
+  },
+
+  {
+    "id": "AI_NEW_001",
+    "category": "AI Security",
+    "option_a": "Check whether sensitive data can be entered into an AI tool",
+    "option_b": "Paste confidential company data into any AI service",
+    "correct": "A"
+  },
+  {
+    "id": "AI_NEW_002",
+    "category": "AI Security",
+    "option_a": "Upload confidential documents to public AI tools",
+    "option_b": "Use only approved AI services for sensitive information",
+    "correct": "B"
+  },
+  {
+    "id": "AI_NEW_003",
+    "category": "AI Security",
+    "option_a": "Verify important AI-generated information before using it",
+    "option_b": "Assume every AI answer is correct",
+    "correct": "A"
+  },
+  {
+    "id": "AI_NEW_004",
+    "category": "AI Security",
+    "option_a": "Share internal credentials with an AI assistant",
+    "option_b": "Keep credentials out of AI prompts",
+    "correct": "B"
+  },
+  {
+    "id": "AI_NEW_005",
+    "category": "AI Security",
+    "option_a": "Follow organizational rules for AI tools",
+    "option_b": "Use any AI tool for company data",
+    "correct": "A"
+  },
+  {
+    "id": "AI_NEW_006",
+    "category": "AI Security",
+    "option_a": "Treat generated code as automatically safe",
+    "option_b": "Review AI-generated code before using it",
+    "correct": "B"
+  },
+
+  {
+    "id": "PHYS_NEW_001",
+    "category": "Workplace Security",
+    "option_a": "Follow clean-desk requirements for sensitive material",
+    "option_b": "Leave confidential papers on your desk overnight",
+    "correct": "A"
+  },
+  {
+    "id": "PHYS_NEW_002",
+    "category": "Workplace Security",
+    "option_a": "Hold restricted doors open for unknown people",
+    "option_b": "Follow access-control procedures",
+    "correct": "B"
+  },
+  {
+    "id": "PHYS_NEW_003",
+    "category": "Workplace Security",
+    "option_a": "Report a lost access badge quickly",
+    "option_b": "Wait before reporting a missing badge",
+    "correct": "A"
+  },
+  {
+    "id": "PHYS_NEW_004",
+    "category": "Workplace Security",
+    "option_a": "Leave meeting-room whiteboards containing sensitive information",
+    "option_b": "Clear sensitive information after meetings",
+    "correct": "B"
+  },
+  {
+    "id": "PHYS_NEW_005",
+    "category": "Workplace Security",
+    "option_a": "Dispose of sensitive notes using approved methods",
+    "option_b": "Throw sensitive notes into ordinary bins",
+    "correct": "A"
+  },
+  {
+    "id": "PHYS_NEW_006",
+    "category": "Workplace Security",
+    "option_a": "Allow visitors to move around restricted areas alone",
+    "option_b": "Follow visitor-control procedures",
+    "correct": "B"
+  }
 ]
