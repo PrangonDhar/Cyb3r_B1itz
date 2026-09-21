@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+DEFAULT_QUESTION_TIME = 4.0
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,13 +55,14 @@ game_engine = GameEngine(
 
     questions_per_game=10,
 
-    question_time_seconds=4.0,
+    question_time_seconds=DEFAULT_QUESTION_TIME,
 
     points_per_correct=10
 )
 
 input_manager = InputManager()
 player_manager = PlayerManager()
+DEFAULT_QUESTION_TIME = 4.0
 
 def game_loop():
 
@@ -76,7 +78,11 @@ def game_loop():
         # TIMEOUT ONLY
         # =============================================
 
-        if game_engine.question_timer.expired():
+        if (
+            game_engine.question_active
+            and
+            game_engine.question_timer.expired()
+        ):
 
             print("Question timeout.")
 
@@ -86,27 +92,52 @@ def game_loop():
                 "answer_result",
                 {
                     "result": "TIMEOUT",
-                    "score": game_engine.score_manager.get_score()
+                    "score":
+                        game_engine.score_manager.get_score()
                 }
             )
+
+            # -----------------------------------------
+            # Game finished after final timeout
+            # -----------------------------------------
 
             if game_engine.game_finished:
 
                 result = game_engine.get_result()
+
                 socketio.emit(
                     "game_finished",
                     result
                 )
+
+            # -----------------------------------------
+            # More questions remaining
+            # -----------------------------------------
+
             else:
 
-                socketio.emit(
-                    "next_question",
-                    game_engine.get_state()
+                socketio.start_background_task(
+                    send_next_question_after_feedback
                 )
 
         socketio.sleep(0.02)
 
     print("Game loop stopped.")
+
+
+def send_next_question_after_feedback():
+
+    socketio.sleep(0.7)
+
+    if not game_engine.running:
+        return
+
+    game_engine.start_question_timer()
+
+    socketio.emit(
+        "next_question",
+        game_engine.get_state()
+    )
 # =========================================================
 # WEB PAGE
 # =========================================================
@@ -161,7 +192,31 @@ def handle_start_game(data):
         })
         return
 
-    # Identity is intentionally NOT collected before gameplay.
+    question_time = DEFAULT_QUESTION_TIME
+
+    if data:
+        try:
+            question_time = float(
+                data.get(
+                    "question_time",
+                    DEFAULT_QUESTION_TIME
+                )
+            )
+        except (TypeError, ValueError):
+            question_time = DEFAULT_QUESTION_TIME
+
+    question_time = max(
+        1.0,
+        min(question_time, 60.0)
+    )
+
+    game_engine.question_time = question_time
+    game_engine.question_timer.duration = question_time
+
+    print(
+        f"QUESTION TIME: {question_time:.1f}s"
+    )
+
     game_engine.set_player(None, None)
     game_engine.start_game()
 
@@ -172,7 +227,11 @@ def handle_start_game(data):
     emit("game_started", state)
 
     print("Game started.")
-    print(f"Question: {state['question_number']}/{state['total_questions']}")
+    print(
+        f"Question: "
+        f"{state['question_number']}/"
+        f"{state['total_questions']}"
+    )
     print(f"Question ID: {state['id']}")
     print(f"TOP: {state['top']}")
     print(f"BOTTOM: {state['bottom']}")
@@ -234,7 +293,13 @@ def handle_submit_identity(data):
 
 @socketio.on("player_direction")
 def handle_player_direction(data):
-    print("DIRECTION RECEIVED:", data, "RUNNING:", game_engine.running)
+
+    print(
+        "DIRECTION RECEIVED:",
+        data,
+        "RUNNING:",
+        game_engine.running
+    )
 
     direction = data.get("direction")
 
@@ -259,10 +324,10 @@ def handle_player_direction(data):
 
     else:
 
-        emit(
-            "next_question",
-            game_engine.get_state()
+        socketio.start_background_task(
+            send_next_question_after_feedback
         )
+
 # =========================================================
 # RUN
 # =========================================================

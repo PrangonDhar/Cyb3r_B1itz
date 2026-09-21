@@ -31,6 +31,9 @@ class QuestionTimer:
     def start(self):
         self.start_time = time.perf_counter()
 
+    def stop(self):
+        self.start_time = None
+
     def elapsed(self):
         if self.start_time is None:
             return 0.0
@@ -38,8 +41,13 @@ class QuestionTimer:
         return time.perf_counter() - self.start_time
 
     def remaining(self):
-        return max(0.0, self.duration - self.elapsed())
+        return max(
+            0.0,
+            self.duration - self.elapsed()
+        )
 
     def expired(self):
+        if self.start_time is None:
+            return False
+
         return self.elapsed() >= self.duration
-    

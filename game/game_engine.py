@@ -13,7 +13,6 @@ class GameEngine:
         questions_per_game=10,
         question_time_seconds=4.0,
         points_per_correct=10
-        
     ):
 
         # =====================================================
@@ -49,15 +48,24 @@ class GameEngine:
 
         self.running = False
         self.game_finished = False
+
+        # True only while a question is actively accepting input
+        self.question_active = False
+
         self.player_name = None
         self.player_id = None
 
         self.last_result = None
 
+    # =========================================================
+    # PLAYER
+    # =========================================================
+
     def set_player(self, player_name, player_id):
 
         self.player_name = player_name
         self.player_id = player_id
+
     # =========================================================
     # START GAME
     # =========================================================
@@ -70,13 +78,13 @@ class GameEngine:
 
         self.game_timer.start()
 
-        self.question_timer.start()
-
         self.running = True
         self.game_finished = False
-
         self.last_result = None
 
+        # Start timer for Question 1
+        self.question_active = True
+        self.question_timer.start()
 
     # =========================================================
     # GET CURRENT GAME STATE
@@ -106,9 +114,11 @@ class GameEngine:
 
         return {
 
-            "running": self.running,
+            "running":
+                self.running,
 
-            "finished": self.game_finished,
+            "finished":
+                self.game_finished,
 
             "question_number":
                 self.question_manager.get_question_number(),
@@ -141,7 +151,6 @@ class GameEngine:
                 self.question_time
         }
 
-
     # =========================================================
     # SUBMIT PLAYER DIRECTION
     # =========================================================
@@ -149,6 +158,13 @@ class GameEngine:
     def submit_direction(self, direction):
 
         if not self.running:
+            return None
+
+        # -----------------------------------------------------
+        # Ignore input while no question is active
+        # -----------------------------------------------------
+
+        if not self.question_active:
             return None
 
         # -----------------------------------------------------
@@ -161,7 +177,8 @@ class GameEngine:
 
             return {
                 "result": "TIMEOUT",
-                "score": self.score_manager.get_score()
+                "score":
+                    self.score_manager.get_score()
             }
 
         # -----------------------------------------------------
@@ -173,8 +190,15 @@ class GameEngine:
         )
 
         if question is None:
-
             return None
+
+        # -----------------------------------------------------
+        # Question is now being answered
+        # Stop its timer immediately
+        # -----------------------------------------------------
+
+        self.question_active = False
+        self.question_timer.stop()
 
         # -----------------------------------------------------
         # Check answer
@@ -188,10 +212,6 @@ class GameEngine:
             direction == correct_direction
         )
 
-        # -----------------------------------------------------
-        # Result
-        # -----------------------------------------------------
-
         if correct:
 
             result = "CORRECT"
@@ -199,7 +219,6 @@ class GameEngine:
         else:
 
             result = "WRONG"
-
 
         # -----------------------------------------------------
         # Record answer history
@@ -212,8 +231,6 @@ class GameEngine:
             result=result
         )
 
-
-
         # -----------------------------------------------------
         # Move to next question
         # -----------------------------------------------------
@@ -222,12 +239,12 @@ class GameEngine:
 
         return {
 
-            "result": result,
+            "result":
+                result,
 
             "score":
                 self.score_manager.get_score()
         }
-
 
     # =========================================================
     # HANDLE TIMEOUT
@@ -238,7 +255,32 @@ class GameEngine:
         if not self.running:
             return
 
-        question = self.question_manager.get_current_question()
+        # -----------------------------------------------------
+        # Prevent duplicate timeout processing
+        # -----------------------------------------------------
+
+        if not self.question_active:
+            return
+
+        question = (
+            self.question_manager.get_current_question()
+        )
+
+        # -----------------------------------------------------
+        # Disable current question
+        # -----------------------------------------------------
+
+        self.question_active = False
+
+        # -----------------------------------------------------
+        # Stop expired timer
+        # -----------------------------------------------------
+
+        self.question_timer.stop()
+
+        # -----------------------------------------------------
+        # Record timeout
+        # -----------------------------------------------------
 
         self.score_manager.record_answer(
             correct=False,
@@ -246,8 +288,12 @@ class GameEngine:
             selected_direction=None,
             result="TIMEOUT"
         )
-        self._next_question()
 
+        # -----------------------------------------------------
+        # Move to next question
+        # -----------------------------------------------------
+
+        self._next_question()
 
     # =========================================================
     # NEXT QUESTION
@@ -268,11 +314,36 @@ class GameEngine:
             return
 
         # -----------------------------------------------------
-        # Start timer for next question
+        # IMPORTANT
+        #
+        # Do NOT start the timer here.
+        #
+        # The timer starts only when the next question is
+        # actually released to the browser.
         # -----------------------------------------------------
 
-        self.question_timer.start()
+    # =========================================================
+    # START CURRENT QUESTION TIMER
+    # =========================================================
 
+    def start_question_timer(self):
+
+        if not self.running:
+            return
+
+        if self.game_finished:
+            return
+
+        # -----------------------------------------------------
+        # Start only if a question isn't already active
+        # -----------------------------------------------------
+
+        if self.question_active:
+            return
+
+        self.question_active = True
+
+        self.question_timer.start()
 
     # =========================================================
     # FINISH GAME
@@ -282,6 +353,9 @@ class GameEngine:
 
         if not self.running:
             return
+
+        self.question_active = False
+        self.question_timer.stop()
 
         self.game_timer.stop()
 
@@ -320,9 +394,10 @@ class GameEngine:
             "answer_history":
                 self.score_manager.answer_history
         }
-# =========================================================
-# # GET RESULT
-# =========================================================
+
+    # =========================================================
+    # GET RESULT
+    # =========================================================
 
     def get_result(self):
 

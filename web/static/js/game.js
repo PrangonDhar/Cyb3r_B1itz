@@ -5,6 +5,63 @@ const socket = io();
 // ELEMENTS
 // =========================================================
 
+const idleMusic =
+    new Audio(
+        "/static/assets/sounds/Idle_Music.mp3"
+    );
+
+const gameplayMusic =
+    new Audio(
+        "/static/assets/sounds/Gameplay_Music.mp3"
+    );
+
+idleMusic.loop = true;
+gameplayMusic.loop = true;
+
+idleMusic.volume = 0.45;
+gameplayMusic.volume = 0.45;
+
+
+function playIdleMusic() {
+
+    gameplayMusic.pause();
+    gameplayMusic.currentTime = 0;
+
+    idleMusic.play().catch(
+        (error) => {
+            console.log(
+                "Idle music waiting for user interaction."
+            );
+        }
+    );
+}
+
+
+function playGameplayMusic() {
+
+    idleMusic.pause();
+    idleMusic.currentTime = 0;
+
+    gameplayMusic.play().catch(
+        (error) => {
+            console.log(
+                "Gameplay music could not start:",
+                error
+            );
+        }
+    );
+}
+
+
+function stopAllMusic() {
+
+    idleMusic.pause();
+    gameplayMusic.pause();
+
+    idleMusic.currentTime = 0;
+    gameplayMusic.currentTime = 0;
+}
+
 const startScreen =
     document.getElementById("startScreen");
 
@@ -13,6 +70,27 @@ const gameScreen =
 
 const startButton =
     document.getElementById("startButton");
+
+const settingsScreen =
+    document.getElementById("settingsScreen");
+
+const settingsHint =
+    document.getElementById("settingsHint");
+
+const responseTimeDisplay =
+    document.getElementById( "responseTimeDisplay");
+    
+const questionTimeInput =
+    document.getElementById("questionTimeInput");
+
+const settingsApplyButton =
+    document.getElementById("settingsApplyButton");
+
+const settingsBackButton =
+    document.getElementById("settingsBackButton");
+
+const settingsButton =
+    document.getElementById("settingsButton");
 
 const categoryElement =
     document.getElementById("category");
@@ -249,6 +327,10 @@ let lastGameResult = null;
 
 let reviewIndex = 0;
 
+let selectedQuestionTime = 4.0;
+
+let settingsActive = false;
+
 // =========================================================
 // CONNECTION
 // =========================================================
@@ -305,9 +387,137 @@ socket.on("system_status", (data) => {
 
 startButton.addEventListener(
     "click",
-    startCountdown
+    () => {
+
+        playIdleMusic();
+
+        startCountdown();
+
+    }
 );
 
+// =========================================================
+// SETTINGS
+// =========================================================
+
+// =========================================================
+// SETTINGS
+// =========================================================
+
+settingsButton.addEventListener(
+    "click",
+    () => {
+
+        playIdleMusic();
+
+        console.log("SETTINGS BUTTON CLICKED");
+
+        startScreen.style.display =
+            "none";
+
+        settingsScreen.style.display =
+            "block";
+
+        questionTimeInput.value =
+            selectedQuestionTime.toFixed(1);
+
+        settingsHint.textContent =
+            `ACTIVE // ${selectedQuestionTime.toFixed(1)} SECONDS`;
+
+        questionTimeInput.focus();
+
+    }
+);
+
+
+settingsBackButton.addEventListener(
+    "click",
+    () => {
+
+        settingsActive = false;
+
+        settingsScreen.style.display =
+            "none";
+
+        startScreen.style.display =
+            "block";
+
+    }
+);
+
+settingsApplyButton.addEventListener(
+    "click",
+    () => {
+
+        let value =
+            parseFloat(
+                questionTimeInput.value
+            );
+
+        if (Number.isNaN(value)) {
+            value = 4.0;
+        }
+
+        value =
+            Math.max(
+                1.0,
+                Math.min(value, 60.0)
+            );
+
+        value =
+            Math.round(value * 10) / 10;
+
+        selectedQuestionTime =
+            value;
+
+        questionTimeInput.value =
+            value.toFixed(1);
+
+        responseTimeDisplay.textContent =
+            `${value.toFixed(1)}s`;
+
+        settingsHint.textContent =
+            `ACTIVE // ${value.toFixed(1)} SECONDS`;
+
+        settingsActive = false;
+
+        settingsScreen.style.display =
+            "none";
+
+        startScreen.style.display =
+            "block";
+
+    }
+);
+
+
+
+function adjustQuestionTime(amount) {
+
+    let value =
+        parseFloat(
+            questionTimeInput.value
+        );
+
+    if (Number.isNaN(value)) {
+        value = selectedQuestionTime;
+    }
+
+    value += amount;
+
+    value =
+        Math.max(
+            1.0,
+            Math.min(value, 60.0)
+        );
+
+    value =
+        Math.round(value * 10) / 10;
+
+    questionTimeInput.value =
+        value.toFixed(1);
+
+}
 
 // =========================================================
 // CONTINUE TO GAME
@@ -521,9 +731,11 @@ function showGo() {
 
         gameStartSent = true;
 
+        playGameplayMusic();
+
         socket.emit(
             "start_game",
-            {}
+            {question_time: selectedQuestionTime}
         );
 
     }, 700);
@@ -717,16 +929,14 @@ function startTimer() {
 
     stopTimer();
 
-
-    timerInterval =
-        setInterval(
-            updateTimer,
-            50
-        );
-
+    questionStartTime = performance.now();
 
     updateTimer();
 
+    timerInterval = setInterval(
+        updateTimer,
+        50
+    );
 }
 
 
@@ -739,11 +949,8 @@ function updateTimer() {
     if (
         questionStartTime === null
     ) {
-
         return;
-
     }
-
 
     const elapsed =
         (
@@ -752,36 +959,27 @@ function updateTimer() {
             questionStartTime
         ) / 1000;
 
-
     const remaining =
         Math.max(
             0,
             currentDuration - elapsed
         );
 
-
     timerElement.textContent =
         remaining.toFixed(1);
 
-
     const percentage =
-        (
-            remaining
-            /
-            currentDuration
-        ) * 100;
-
+        Math.max(
+            0,
+            (
+                remaining
+                /
+                currentDuration
+            ) * 100
+        );
 
     timerFillElement.style.width =
         `${percentage}%`;
-
-
-    if (remaining <= 0) {
-
-        stopTimer();
-
-    }
-
 }
 
 
@@ -822,6 +1020,10 @@ socket.on(
             "Answer:",
             data.result
         );
+
+        stopTimer();
+
+        questionStartTime = null;
 
         scoreElement.textContent =
             data.score;
@@ -946,29 +1148,22 @@ socket.on(
             data
         );
 
-        // Give the answer feedback time to display
-        setTimeout(() => {
+        // Reset previous selection
+        topOption.classList.remove(
+            "option-selected",
+            "option-dimmed"
+        );
 
-            // Reset previous selection
-            topOption.classList.remove(
-                "option-selected",
-                "option-dimmed"
-            );
+        bottomOption.classList.remove(
+            "option-selected",
+            "option-dimmed"
+        );
 
-            bottomOption.classList.remove(
-                "option-selected",
-                "option-dimmed"
-            );
+        // Display the new question
+        displayQuestion(data);
 
-            // Load next question
-            displayQuestion(
-                data
-            );
-
-            // Allow another answer
-            answerLocked = false;
-
-        }, 700);
+        // Allow another answer
+        answerLocked = false;
     }
 );
 
@@ -989,6 +1184,8 @@ socket.on(
         );
 
         stopTimer();
+
+        playIdleMusic();
 
         playerScreen.style.display =
             "block";
@@ -1049,8 +1246,9 @@ function showResults(data) {
         "block";
 
 
+    // REAL FINAL LEADERBOARD SCORE
     finalScoreElement.textContent =
-        data.score;
+        data.leaderboard.score;
 
 
     correctAnswersElement.textContent =
@@ -1368,6 +1566,16 @@ document.addEventListener(
 
             event.preventDefault();
 
+            // SETTINGS SCREEN
+            if (
+                settingsScreen.style.display !== "none"
+            ) {
+
+                settingsApplyButton.click();
+
+                return;
+            }
+
             // START SCREEN
             if (
                 startScreen.style.display !== "none"
@@ -1438,6 +1646,30 @@ document.addEventListener(
             event.key !== "ArrowUp" &&
             event.key !== "ArrowDown"
         ) {
+
+            return;
+        }
+
+        // -------------------------------------------------
+        // ARROWS IN SETTINGS
+        // -------------------------------------------------
+
+        if (
+            settingsScreen.style.display !== "none"
+        ) {
+
+            event.preventDefault();
+
+            if (event.key === "ArrowUp") {
+
+                adjustQuestionTime(0.1);
+
+            }
+            else if (event.key === "ArrowDown") {
+
+                adjustQuestionTime(-0.1);
+
+            }
 
             return;
         }
@@ -1539,6 +1771,7 @@ document.addEventListener(
 
 let gamepadPreviousDirection = null;
 let gamepadPreviousA = false;
+let gamepadPreviousX = false;
 
 function pollGamepad() {
 
@@ -1579,15 +1812,43 @@ function pollGamepad() {
         direction !== gamepadPreviousDirection
     ) {
 
-        // During gameplay → answer question
+        // -------------------------------------------------
+        // SETTINGS → CHANGE TIMER
+        // -------------------------------------------------
+
         if (
-            gameScreen.style.display !== "none"
+            settingsScreen.style.display !== "none"
         ) {
-            
-            selectAnswer(direction);
+
+            if (direction === "UP") {
+
+                adjustQuestionTime(0.1);
+
+            }
+            else if (direction === "DOWN") {
+
+                adjustQuestionTime(-0.1);
+
+            }
+
         }
 
-        // During answer review → scroll
+        // -------------------------------------------------
+        // GAME → ANSWER
+        // -------------------------------------------------
+
+        else if (
+            gameScreen.style.display !== "none"
+        ) {
+
+            selectAnswer(direction);
+
+        }
+
+        // -------------------------------------------------
+        // REVIEW → SCROLL
+        // -------------------------------------------------
+
         else if (
             reviewScreen.style.display !== "none"
         ) {
@@ -1608,7 +1869,9 @@ function pollGamepad() {
                 });
 
             }
+
         }
+
     }
 
     // Reset direction when stick returns to center
@@ -1646,6 +1909,31 @@ function pollGamepad() {
     }
 
     gamepadPreviousA = aPressed;
+
+
+    // -----------------------------------------------------
+    // X BUTTON → SETTINGS
+    // -----------------------------------------------------
+
+    const xPressed =
+        gamepad.buttons[2]?.pressed === true;
+
+    if (
+        xPressed &&
+        !gamepadPreviousX
+    ) {
+
+        if (
+            startScreen.style.display !== "none"
+        ) {
+
+            settingsButton.click();
+
+        }
+
+    }
+
+    gamepadPreviousX = xPressed;
 
     requestAnimationFrame(pollGamepad);
 }
