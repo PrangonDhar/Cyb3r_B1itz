@@ -11,7 +11,7 @@ echo Starting Cyber BLITZ server...
 echo.
 
 
-start "" "C:\Users\YourName\AppData\Local\Programs\Python\Python313\python.exe" web\app.py
+start "" "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe" web\app.py
 
 timeout /t 3 /nobreak >nul
 
