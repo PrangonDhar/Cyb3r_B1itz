@@ -15,6 +15,26 @@ const gameplayMusic =
         "/static/assets/sounds/Gameplay_Music.mp3"
     );
 
+const countdownSound =
+    new Audio(
+        "/static/assets/sounds/Countdown.mp3"
+    );
+
+const correctSound =
+    new Audio(
+        "/static/assets/sounds/Correct.mp3"
+    );
+
+const wrongSound =
+    new Audio(
+        "/static/assets/sounds/Wrong.mp3"
+    );
+
+const timeoutSound =
+    new Audio(
+        "/static/assets/sounds/Timeout.mp3"
+    );
+
 idleMusic.loop = true;
 gameplayMusic.loop = true;
 
@@ -25,10 +45,9 @@ gameplayMusic.volume = 0.45;
 function playIdleMusic() {
 
     gameplayMusic.pause();
-    gameplayMusic.currentTime = 0;
 
     idleMusic.play().catch(
-        (error) => {
+        () => {
             console.log(
                 "Idle music waiting for user interaction."
             );
@@ -40,13 +59,13 @@ function playIdleMusic() {
 function playGameplayMusic() {
 
     idleMusic.pause();
-    idleMusic.currentTime = 0;
+
+    gameplayMusic.currentTime = 0;
 
     gameplayMusic.play().catch(
-        (error) => {
+        () => {
             console.log(
-                "Gameplay music could not start:",
-                error
+                "Gameplay music waiting for user interaction."
             );
         }
     );
@@ -60,6 +79,19 @@ function stopAllMusic() {
 
     idleMusic.currentTime = 0;
     gameplayMusic.currentTime = 0;
+}
+
+function playSound(sound) {
+
+    sound.currentTime = 0;
+
+    sound.play().catch(
+        () => {
+            console.log(
+                "Sound waiting for user interaction."
+            );
+        }
+    );
 }
 
 const startScreen =
@@ -578,12 +610,30 @@ function startCountdown() {
         return;
     }
 
+    // RESET GAMEPLAY STATE
+    answerLocked = false;
+
+    topOption.classList.remove(
+        "option-selected",
+        "option-dimmed"
+    );
+
+    bottomOption.classList.remove(
+        "option-selected",
+        "option-dimmed"
+    );
+
+    stopTimer();
+
+    questionStartTime = null;
+
+    playSound(countdownSound);
+
     startScreen.style.display = "none";
     playerScreen.style.display = "none";
     gameScreen.style.display = "none";
 
     showCountdown(3);
-
 }
 
 
@@ -1025,6 +1075,22 @@ socket.on(
 
         questionStartTime = null;
 
+        if (data.result === "CORRECT") {
+
+            playSound(correctSound);
+
+        }
+        else if (data.result === "WRONG") {
+
+            playSound(wrongSound);
+
+        }
+        else if (data.result === "TIMEOUT") {
+
+            playSound(timeoutSound);
+
+        }
+
         scoreElement.textContent =
             data.score;
 
@@ -1263,42 +1329,6 @@ function showResults(data) {
 // =========================================================
 // REPLAY
 // =========================================================
-
-reviewPlayAgainButton.addEventListener(
-    "click",
-    () => {
-
-        reviewScreen.style.display =
-            "none";
-
-        resultsScreen.style.display =
-            "none";
-
-        playerScreen.style.display =
-            "none";
-
-        gameScreen.style.display =
-            "none";
-
-        startScreen.style.display =
-            "block";
-
-        playerName.value =
-            "";
-
-        playerId.value =
-            "";
-
-        playerPreview.textContent =
-            "IDENTITY // --";
-
-        gameStartSent =
-            false;
-
-        startButton.style.display =
-            "";
-    }
-);
 
 seeAnswersButton.addEventListener(
     "click",
@@ -1771,7 +1801,9 @@ document.addEventListener(
 
 let gamepadPreviousDirection = null;
 let gamepadPreviousA = false;
+let gamepadPreviousB = false;
 let gamepadPreviousX = false;
+let gamepadPreviousY = false;
 
 function pollGamepad() {
 
@@ -1934,6 +1966,65 @@ function pollGamepad() {
     }
 
     gamepadPreviousX = xPressed;
+
+    // -----------------------------------------------------
+    // B BUTTON → BACK
+    // -----------------------------------------------------
+
+    const bPressed =
+        gamepad.buttons[1]?.pressed === true;
+
+    if (
+        bPressed &&
+        !gamepadPreviousB
+    ) {
+
+        // SETTINGS → BACK
+        if (
+            settingsScreen.style.display !== "none"
+        ) {
+
+            settingsBackButton.click();
+
+        }
+    }
+
+    gamepadPreviousB = bPressed;
+
+
+    // -----------------------------------------------------
+    // Y BUTTON → TOGGLE EMPLOYEE / EXTERNAL
+    // -----------------------------------------------------
+
+    const yPressed =
+        gamepad.buttons[3]?.pressed === true;
+
+    if (
+        yPressed &&
+        !gamepadPreviousY
+    ) {
+
+        // PLAYER IDENTIFICATION → TOGGLE TYPE
+        if (
+            playerScreen.style.display !== "none"
+        ) {
+
+            if (playerType === "EMPLOYEE") {
+
+                externalButton.click();
+
+            }
+            else {
+
+                employeeButton.click();
+
+            }
+
+        }
+    }
+
+    gamepadPreviousY = yPressed;
+
 
     requestAnimationFrame(pollGamepad);
 }

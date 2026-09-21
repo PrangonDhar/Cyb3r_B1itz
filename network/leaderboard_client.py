@@ -1,5 +1,5 @@
 import os
-
+from datetime import datetime
 from dotenv import load_dotenv
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
@@ -90,19 +90,12 @@ def submit_score(
     )
 
     document = {
-
-        "playerId":
-            player_id,
-
-        "playerName":
-            player_name,
-
-        "score":
-            unified_score,
-
-        "gameId":
-            game_id
-    }
+    "playerId": player_id,
+    "playerName": player_name,
+    "score": unified_score,
+    "gameId": game_id,
+    "createdAt": datetime.utcnow()
+}
 
     try:
 
